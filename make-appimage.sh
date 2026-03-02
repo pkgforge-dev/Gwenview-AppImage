@@ -14,6 +14,7 @@ export DESKTOP=/usr/share/applications/org.kde.gwenview.desktop
 # Deploy dependencies
 quick-sharun \
 	/usr/bin/gwenview* \
+	/usr/lib/kf6/kioworker \
 	/usr/lib/qt6/plugins/kf6/parts/gvpart.so \
 	/usr/lib/qt6/plugins/kf6/kfileitemaction/slideshowfileitemaction.so
 
