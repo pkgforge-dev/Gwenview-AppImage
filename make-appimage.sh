@@ -19,7 +19,8 @@ quick-sharun \
 	/usr/lib/qt6/plugins/kf6/parts/gvpart.so \
 	/usr/lib/qt6/plugins/kf6/kfileitemaction/slideshowfileitemaction.so
 
-# Additional changes can be done in between here
+# it tries to dlopen pipewire and vulkan, causing a crash in alpine linux...
+echo 'ANYLINUX_DO_NOT_LOAD_LIBS=libvulkan*:libpipewire*:${ANYLINUX_DO_NOT_LOAD_LIBS}' >> ./AppDir/.env
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
