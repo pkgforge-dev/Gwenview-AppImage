@@ -17,7 +17,7 @@ pacman -Rdd --noconfirm qt6-webengine
 
 # build kiconthemes without mandatory link to massive libKF6BreezeIcons.so library
 PRE_BUILD_CMDS="
-  sed -i -e 's|-DBUILD_TESTING=OFF|-DBUILD_TESTING=OFF -DUSE_BreezeIcons=OFF|g ./PKGBUILD
+  sed -i -e 's|-DBUILD_TESTING=OFF|-DBUILD_TESTING=OFF -DUSE_BreezeIcons=OFF|g' ./PKGBUILD
 " make-aur-package --archlinux-pkg kiconthemes
 
 # If the application needs to be manually built that has to be done down here
