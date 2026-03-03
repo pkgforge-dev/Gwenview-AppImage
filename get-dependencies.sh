@@ -15,8 +15,10 @@ get-debloated-pkgs --add-common --prefer-nano ffmpeg-mini
 # remove qt6webengine, otherwise it gets deployed due to it having a qml plugin
 pacman -Rdd --noconfirm qt6-webengine
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+# build kiconthemes without mandatory link to massive libKF6BreezeIcons.so library
+PRE_BUILD_CMDS="
+  sed -i -e 's|-DBUILD_TESTING=OFF|-DBUILD_TESTING=OFF -DUSE_BreezeIcons=OFF|g ./PKGBUILD
+" make-aur-package --archlinux-pkg kiconthemes
 
 # If the application needs to be manually built that has to be done down here
 
