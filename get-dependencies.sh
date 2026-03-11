@@ -6,7 +6,7 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-pacman -Syu --noconfirm gwenview qt6ct
+pacman -Syu --noconfirm gwenview qt6ct kvantum lxqt-qtplugin breeze oxygen
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
