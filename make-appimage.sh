@@ -11,16 +11,10 @@ export UPINFO="gh-releases-zsync|${GITHUB_REPOSITORY%/*}|${GITHUB_REPOSITORY#*/}
 export ICON=/usr/share/icons/hicolor/128x128/apps/gwenview.png
 export DESKTOP=/usr/share/applications/org.kde.gwenview.desktop
 export ANYLINUX_LIB=1
+export USE_HOST_DRIVERS_EXPERIMENTAL=1
 
 # Deploy dependencies
-quick-sharun \
-	/usr/bin/gwenview* \
-	/usr/lib/kf6/kioworker \
-	/usr/lib/qt6/plugins/kf6/parts/gvpart.so \
-	/usr/lib/qt6/plugins/kf6/kfileitemaction/slideshowfileitemaction.so
-
-# it tries to dlopen pipewire and vulkan, causing a crash in alpine linux...
-echo 'ANYLINUX_DO_NOT_LOAD_LIBS=libvulkan*:libpipewire*:${ANYLINUX_DO_NOT_LOAD_LIBS}' >> ./AppDir/.env
+quick-sharun /usr/bin/gwenview*
 
 # Turn AppDir into AppImage
 quick-sharun --make-appimage
